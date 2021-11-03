@@ -13,6 +13,11 @@ const DriverSchema = new mongoose.Schema(
     },
 
     // References
+    car: {
+      type: mongoose.Types.ObjectId,
+      ref: "Car",
+    },
+
     location: {
       type: mongoose.Types.ObjectId,
       ref: "Location",
