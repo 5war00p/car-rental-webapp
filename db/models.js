@@ -16,4 +16,7 @@ const connectDB = async () => {
 module.exports = {
   mongoose,
   connectDB,
+  Car: require("./car"),
+  User: require("./user"),
+  Location: require("./location"),
 };
