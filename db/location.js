@@ -19,10 +19,10 @@ const LocationSchema = new mongoose.Schema(
     location: GeoLocationSchema,
 
     // References
-    user: {
+    driver: {
       type: mongoose.Types.ObjectId,
       required: true,
-      ref: "User",
+      ref: "Driver",
     },
   },
   { timestamps: { createdAt: false, updatedAt: true } }

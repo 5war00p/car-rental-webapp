@@ -17,6 +17,6 @@ module.exports = {
   mongoose,
   connectDB,
   Car: require("./car"),
-  User: require("./user"),
+  Driver: require("./driver"),
   Location: require("./location"),
 };

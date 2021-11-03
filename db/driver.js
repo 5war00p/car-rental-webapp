@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema(
+const DriverSchema = new mongoose.Schema(
   {
     // Required fields
     name: {
@@ -11,14 +11,15 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    user_type: {
-      type: String,
-      enum: ["Customer", "Driver"],
-      default: "Customer",
+
+    // References
+    location: {
+      type: mongoose.Types.ObjectId,
+      ref: "Location",
     },
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("User", UserSchema);
-module.exports = User;
+const Driver = mongoose.model("Driver", DriverSchema);
+module.exports = Driver;
