@@ -18,11 +18,13 @@ router.get("/nearer", (req, res, next) => {
     {
       $geoNear: {
         near: { type: "Point", coordinates: [lat, lng] },
-        distanceField: "dist.calculated",
+        distanceField: "distance",
         maxDistance: 10000, // less or equal to  10 km
         spherical: true,
       },
     },
+    { $sort: { distance: 1, createdate: -1 } }, // sorting using least distance and most recent as firstone
+    { $limit: 3 }, // top 3 will be given
   ])
     .then((drivers) => {
       res.send({ data: drivers, message: "success", code: 200 });
